@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ServiceService } from './service.service';
+import { CommonModule, NgFor } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'CodeSandbox';
+constructor(private user:ServiceService){
+  this.getApi()
+}
+userData:any = ""
+
+
+getApi(){
+  this.user.getData().subscribe(data=>{
+this.userData = data
+console.log(this.userData)
+  },(error)=>{console.error(error)})
+}
+
+
 }

@@ -1,17 +1,12 @@
-
-
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-  }
-</style>
-
-<div class="content" role="main">
-  <h1>Welcome to {{title}}!</h1>
-  <h2>Start editing to see some magic happen</h2>
+<div class="container">
+  <h1>Lista de Usuarios</h1>
+  <div class="user-cards">
+    <!-- Utiliza *ngFor para iterar sobre los usuarios en userData.results -->
+    <div class="user-card" *ngFor="let data of userData.results">
+      <img [src]="data.picture.large" [alt]="data.id.name">
+      <h2>{{data.id.name}}</h2>
+      <p>Email: {{data.email}}</p>
+      <p>Teléfono: {{data.cell}}</p>
+    </div>
+  </div>
 </div>
